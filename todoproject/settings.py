@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -85,7 +85,12 @@ WSGI_APPLICATION = 'todoproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.path.join(BASE_DIR,'db.sqlite3')
+        'NAME': 'djangogirls',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
 }
 
@@ -148,4 +153,11 @@ except ImportError:
     pass
 
 if not DEBUG:
+<<<<<<< HEAD
     SECRET_KEY = os.environ['SECRET_KEY']
+=======
+    SECRET_KEY = os.environ['n84qw#7^azwtc(c&isq21k28nxr&+zzufmi7q(pw72v@7m8%y9']
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+>>>>>>> 8e6135ba56e66da805befdb1cd9bb294ea1f1bc0
